@@ -1,8 +1,38 @@
 
 
-let getNews = async() =>{
+
+
+// let dynamicUrl  = () =>{
+
+   
+//     for(let key of ul){
+//         key.addEventListener('click',function (){
+        
+//            let category = key.firstElementChild.innerText;
+//           let getUrl = `https://openapi.programming-hero.com/api/news/category/${category}`
+          
+        
+//     })
+// }
+// return getUrl;
+// }
+
+
+// dynamicUrl()
+
+
+
+
+
+
+
+
+
+let getNews = async(id) =>{
+
+
     try{
-        let url = `https://openapi.programming-hero.com/api/news/category/08`;
+        let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     let res = await fetch(url);
     let data = await res.json();
     separateNews(data.data);
@@ -14,6 +44,7 @@ console.log(error);
 let separateNews = (news) =>{
 
 // Filtering news amount 
+
 let sliceNews = news.slice(0,10);
 
 sliceNews.forEach(singleNews => {
@@ -121,13 +152,16 @@ modalBody.innerHTML = `
 `
 
 }
-getNews()
 
 let ul = document.querySelectorAll('#secondNav li');
 
 for(let key of ul){
-key.addEventListener('click',function(){
-
-    console.log(key)
+    key.addEventListener('click',function (){
+    
+      let category = key.firstElementChild.innerText;
+      console.log(category)
+      getNews(category);
 })
 }
+
+
