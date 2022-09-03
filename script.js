@@ -22,9 +22,11 @@ let separateNews = (news) =>{
 let newsContainer = document.getElementById('newsContainer');
 newsContainer.textContent = '';
 
-// Filtering news amount 
+let articleNumber = news.length;
+let foundItem = document.getElementById('foundItem');
+foundItem.classList.add('text-success','fw-semibold' )
+foundItem.innerText = articleNumber;
 
-// let sliceNews = news.slice(0,10);
 
 
 news.forEach(singleNews => {
@@ -114,7 +116,7 @@ console.log(mainData)
 // Modal Body
 let modalBody = document.getElementById('modal-body');
 modalBody.innerHTML = `
-<div class="card mx-auto" style="width: 100%;">
+<div class="card mx-auto w-100">
   <img src="${mainData.image_url}" class="card-img-top img-fluid mx-auto" alt="...">
   <div class="card-body">
     <h5 class="card-title">${mainData.title ? mainData.title : 'Unknown'}</h5>
@@ -137,8 +139,15 @@ for(let key of ul){
     
       let category = key.firstElementChild.innerText;
        let navLink = key.childNodes[3];
-       navLink.classList.add('active');
+    //    navLink.classList.add('active');
+    navLink.classList.add('text-dark');
       getNews(category);
+
+      let categoryName = document.getElementById('categoryName');
+      categoryName.classList.add('text-success','fw-semibold')
+      categoryName.innerText = navLink.innerText;
+
+
 })
 }
 
