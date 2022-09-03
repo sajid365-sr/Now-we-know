@@ -62,10 +62,12 @@
 <!-- Blogs -->
 
 <section class="container">
-    <div class="card mb-3 mx-auto" style="max-width: 100%;">
-        <div class="row g-3">
+    <div class="card g-4 mx-auto container border-0" style="max-width: 100%;">
+
+        <!-- Question 1 -->
+        <div class="row mb-4 border shadow-sm rounded flex-column-reverse flex-lg-row">
           <div class="col">
-            <div class="p-4 border">
+            <div class="p-4">
                 <code class="text-secondary">
                     //var is just like let but var is used to declare a variable value at top of
                     the program, its hoisted.<br><br>
@@ -94,7 +96,7 @@
                                 </code>
             </div>
           </div>
-          <div class="col">
+          <div class="col  bg-info bg-opacity-25">
             <div class="card-body">
               <h3 class="card-title fw-semibold my-3">Difference Between var, let and const</h3>
               <!-- var -->
@@ -107,9 +109,40 @@
             </div>
           </div>
         </div>
+
+        <!-- Question 2 -->
+        <div class="row border shadow-sm rounded">
+            <div class="col bg-info bg-opacity-25">
+                <div class="card-body">
+                    <h3 class="card-title fw-semibold my-3">Difference Between regular function and arrow function</h3>
+                    <!-- regular function -->
+                    <p class="card-text"><span class="fw-bold text-success">Regular function : </span>Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword.</p>
+                      <!-- arrow function -->
+                    <p class="card-text"><span class="fw-bold text-primary">Arrow function : </span>However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions.</p>
+                      
+                    
+                  </div>
+            </div>
+            <div class="col">
+                <div class="p-4">
+                    <code class="text-secondary">
+                        <span class="text-success">Stntax of regular function :</span><br><br>
+                        <span class="text-primary">let x</span> = function function_name(<span class="text-danger">parameters</span>){<br>
+                            // body of the function<br>
+                         };<br><br>
+
+                         <span class="text-success">Stntax of arrow function :</span><br><br>
+                         <span class="text-primary">let x</span> = (<span class="text-danger">parameters</span>) => {<br>
+
+                            // body of the function<br>
+                        };
+                    </code>
+                </div>
+                
+            </div>
+          </div>
       </div>
 </section>
-
 
 
 
