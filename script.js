@@ -1,34 +1,47 @@
 
 
-let getNews = async(id) =>{
+let getNews = async(id,number,key) =>{
 
 
     try{
         let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     let res = await fetch(url);
     let data = await res.json();
-    separateNews(data.data);
+    separateNews(data.data,number,key);
     }catch(error){
 console.log(error);
     }
 }
 
-let separateNews = (news) =>{
+let separateNews = (news,number,key) =>{
 
     // Select the news container
 let newsContainer = document.getElementById('newsContainer');
 newsContainer.textContent = '';
 
-let articleNumber = news.length;
-let foundItem = document.getElementById('foundItem');
-foundItem.classList.add('text-success','fw-semibold' )
-foundItem.innerText = articleNumber;
 
 
+if(number && news.length > 10){
+    news = news.slice(0,10);
+
+        }
+
+        let articleNumber = news.length;
+        let foundItem = document.getElementById('foundItem');
+        foundItem.classList.add('text-success','fw-semibold' )
+        foundItem.innerText = articleNumber;
+
+        // console.log(key);
+        // let navLink = key.lastElementChild;
+        // navLink.classList.add('text-success');
+
+        // console.log(navLink)
 
 news.forEach(singleNews => {
    
-
+    
+   
+    
     // First paragraph word limit set
 let splitNewsDetails = singleNews.details.split(' ');
 let firstParaWordLimit = splitNewsDetails.slice(1,70);
@@ -134,10 +147,15 @@ let ul = document.querySelectorAll('#secondNav li');
 for(let key of ul){
     key.addEventListener('click',function (){
     
-      let category = key.firstElementChild.innerText;
-       let navLink = key.childNodes[3];
-   
-      getNews(category);
+      let anchors = document.querySelectorAll('#secondNav li a');
+     for(let anchor of anchors){
+         anchor.classList.remove('text-success','fw-semibold','text-decoration-underline');
+     }
+
+     let category = key.firstElementChild.innerText;
+       let navLink = key.lastElementChild;
+       navLink.classList.add('text-success','fw-semibold','text-decoration-underline');
+      getNews(category,10,key);
 
       let categoryName = document.getElementById('categoryName');
       categoryName.classList.add('text-success','fw-semibold')
@@ -147,4 +165,4 @@ for(let key of ul){
 })
 }
 
-getNews('08');
+getNews('08',10);
