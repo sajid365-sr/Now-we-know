@@ -12,12 +12,14 @@ console.log(error);
 }
 
 let separateNews = (news) =>{
-console.log(news);
 
+// Filtering news amount 
+let sliceNews = news.slice(0,10);
 
-news.forEach(singleNews => {
+sliceNews.forEach(singleNews => {
     console.log(singleNews)
 
+    
     // First paragraph word limit set
 let splitNewsDetails = singleNews.details.split(' ');
 let firstParaWordLimit = splitNewsDetails.slice(1,70);
@@ -82,6 +84,7 @@ let secondPara = secondParaWordLimit.join(' ');
 
     newsContainer.appendChild(row);
 });
+// console.log(newsIdFiltering)
 }
 
 
