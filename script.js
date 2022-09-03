@@ -39,7 +39,9 @@ let secondPara = secondParaWordLimit.join(' ');
     row.innerHTML = `
     <div class="col-md-3 p-3">
             <!-- image -->
-            <img src= "${singleNews.thumbnail_url}" class="img-fluid rounded h-100" alt="...">
+            <img src= "${singleNews.thumbnail_url}" class="img-fluid rounded h-100 d-none d-md-block" alt="...">
+            <img src= "${singleNews.image_url}" class="img-fluid rounded d-md-none" alt="...">
+            
           </div>
           <div class="col-md-9">
             <!-- Card Body -->
@@ -49,8 +51,8 @@ let secondPara = secondParaWordLimit.join(' ');
               <p class="card-text text-secondary">${secondPara}...</p>
 
                 <!-- Card Footer -->
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center gap-3">
+                <div class="d-flex flex-column flex-md-row gap-3 justify-content-between align-items-center text-center">
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-3">
                         
                             <img src="${singleNews.author.img}" style="height: 45px; width: 45px;" class="img-fluid rounded-circle" alt="">
                         
@@ -122,4 +124,10 @@ modalBody.innerHTML = `
 getNews()
 
 let ul = document.querySelectorAll('#secondNav li');
-console.log(ul)
+
+for(let key of ul){
+key.addEventListener('click',function(){
+
+    console.log(key)
+})
+}
