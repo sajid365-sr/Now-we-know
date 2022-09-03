@@ -111,7 +111,7 @@
         </div>
 
         <!-- Question 2 -->
-        <div class="row border shadow-sm rounded">
+        <div class="row border shadow-sm rounded mb-4">
             <div class="col bg-info bg-opacity-25">
                 <div class="card-body">
                     <h3 class="card-title fw-semibold my-3">Difference Between regular function and arrow function</h3>
@@ -139,6 +139,66 @@
                     </code>
                 </div>
                 
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="row mb-4 border shadow-sm rounded flex-column-reverse flex-lg-row">
+            <div class="col">
+              <div class="p-4">
+                  <code class="text-secondary">
+                      //Example of map()<br><br>
+                      
+                      <span class="text-primary">const colorData</span>  = ['red','blue','green']<br>
+                        <span class="text-success">const result</span> = colorData.map((<span class="text-danger">el</span>)=><span class="text-danger">el</span>)<br>
+                        console.log(<span class="text-success">result</span>)<br><br>
+                        
+                        //Example of forEach()<br><br>
+                      
+                        <span class="text-primary">let numbers</span> = [28, 77, 45, 99, 27];<br>
+ 
+                        <span class="text-success">numbers</span>.forEach(<span class="text-danger">number</span> => {  <br>
+                          console.log(<span class="text-danger">number</span>);<br>
+                        });<br><br>
+                      
+                      
+                        //Example of filter()<br><br>
+                      
+                        <span class="text-primary">const words</span> = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];<br>
+
+                        <span class="text-success">const result</span> = <span class="text-primary"> words</span>.filter(<span class="text-danger">word</span> => <span class="text-danger">word</span>.length  6);
+
+                        console.log(<span class="text-success">number</span>);<br>
+
+                        //OUTPUT: ['spray', 'limit', 'elite']<br><br>
+
+                        //Example fo find()<br><br>
+
+                        <span class="text-primary">let array</span> = [
+                        { name:"string 1", value:"this", other: "that" },
+                        { name:"string 2", value:"this", other: "that" }
+                    ];<br>
+
+                    <span class="text-primary">let obj</span> = <span class="text-success">array</span>.find(o => o.name === 'string 1');
+
+                    console.log(<span class="text-primary">obj</span>);
+                      
+                                  </code>
+              </div>
+            </div>
+            <div class="col  bg-info bg-opacity-25">
+              <div class="card-body">
+                <h3 class="card-title fw-semibold my-3">Difference Between map(), forEach(), filter() &find()</h3>
+                <!-- map -->
+                <p class="card-text"><span class="fw-bold text-success">map() Method In JavaScript : </span>Definition and Usage. map() creates a new array from calling a function for every array element. map() calls a function once for each element in an array. map() does not execute the function for empty elements. map() does not change the original array.</p>
+                  <!-- forEach -->
+                <p class="card-text"><span class="fw-bold text-primary">forEach() Method In JavaScript : </span>The forEach() method executes a function once for each item in the array. The method is called on the array object that you wish to manipulate, and the function to call is provided as an argument. In the code above, console. log() is invoked for each element in the array.</p>
+                  <!-- filter -->
+                  <p class="card-text"><span class="fw-bold text-danger">filter() Method In JavaScript : </span>TJavaScript's Objects are not iterable like arrays or strings, so we can't make use of the filter() method directly on an Object . filter() allows us to iterate through an array and returns only the items of that array that fit certain criteria, into a new array.</p>
+                  <!-- find -->
+                  <p class="card-text"><span class="fw-bold text-in">find() Method In JavaScript : </span>The find() method returns the first value in the array, if an element in the array satisfies the provided testing function. Otherwise undefined is returned.</p>
+                
+              </div>
             </div>
           </div>
       </div>
