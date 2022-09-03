@@ -140,7 +140,7 @@ for(let key of ul){
       let category = key.firstElementChild.innerText;
        let navLink = key.childNodes[3];
     //    navLink.classList.add('active');
-    navLink.classList.add('text-dark');
+    navLink.classList.add('text-success');
       getNews(category);
 
       let categoryName = document.getElementById('categoryName');
@@ -151,4 +151,4 @@ for(let key of ul){
 })
 }
 
-
+getNews('08');

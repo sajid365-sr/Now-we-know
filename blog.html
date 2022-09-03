@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Now We Know</title>
+
+    <!-- Boostrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Favicon/site.webmanifest">
+    <link rel="mask-icon" href="Favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  
+
+  </head>
+
+  <body class="bg-secondary bg-opacity-10">
+
+    <!-- Navbar Starts-->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container pb-3">
+          <div class="navbar-brand">
+              <img src="images/logo.png" class="w-75" alt="">
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="responsive">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-success text-decoration-underline" href="#">Blog</a>
+              </li>
+              <form class="d-flex me-3" role="search">
+                <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success px-4" type="submit">Search</button>
+              </form>
+            </ul>
+          </div>
+          <div class="d-none d-lg-block">
+            <img src="https://randomuser.me/api/portraits/men/64.jpg" class="img-fluid rounded-circle" style="height: 45px; width: 45px;" alt="Authorized User" title="Authorized User">
+        </div>
+        </div>
+      </nav>
+
+      <!-- Navbar Ends-->
+
+
+<!-- Blogs -->
+
+<section class="container">
+    <div class="card mb-3 mx-auto" style="max-width: 100%;">
+        <div class="row g-3">
+          <div class="col">
+            <div class="p-4 border">
+                <code class="text-secondary">
+                    //var is just like let but var is used to declare a variable value at top of
+                    the program, its hoisted.<br><br>
+                    
+                    <span class="text-success">var a;</span> // Initializing the variable.<br>
+                    <span class="text-success">var b = 4;</span> // Initializing and declaring variable.<br>
+                    <span class="text-success">var b = 5;</span> //b will be redeclared and we can update its value.<br><br>
+
+                    //let is used to declare the variable or initialize a variable..<br>
+                    //let variable can be updated in future.<br>
+                    //Its block scope and we cannot redeclare it.<br><br>
+                    
+                   <span class="text-primary"> let a;</span> // Initializing the variable.<br>
+                    <span class="text-primary">let b = 4;</span> // Initializing and declaring variable.<br>
+                    <span class="text-primary">let b = 5; </span>//Error:- cannot redeclare a value but we can update the value.<br><br>
+                    
+                    
+                    //const variable should be declared and intialized at same time.<br>
+                    //const variable cannot be updated in future.<br>
+                    //we cannot even redeclare the variable in future.<br><br>
+                    
+                    <span class="text-danger">const a = 10;</span> //Initilizing and declaring a variable at a time.<br>
+                    <span class="text-danger">const b;</span> //Error:- const should be declared and intialized.<br>
+                    <span class="text-danger">const a = 11</span> // Error:- cannot redeclare the variable again.<br>
+                    
+                                </code>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h3 class="card-title fw-semibold my-3">Difference Between var, let and const</h3>
+              <!-- var -->
+              <p class="card-text"><span class="fw-bold text-success">Var Keyword In JavaScript : </span>The var is the oldest keyword to declare a variable in JavaScript. <br>Global scoped or function scoped. The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. </p>
+                <!-- let -->
+              <p class="card-text"><span class="fw-bold text-primary">Let Keyword In JavaScript : </span>The let keyword is an improved version of the var keyword. <br>The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block})</p>
+                <!-- const -->
+                <p class="card-text"><span class="fw-bold text-danger">Const Keyword In JavaScript : </span>The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.<br>When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+
+
+
+
+      <footer>
+        <hr class="fw-bold">
+        <p class="text-center py-3">Copyright @ 2022 (NWK) All Rights Reserved</p>
+      </footer>
+      
+          <!-- Bootstrap Script -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+      
+
+  </body>
+  </html>
