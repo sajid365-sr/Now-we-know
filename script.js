@@ -17,9 +17,9 @@ let separateNews = (news) =>{
 let sliceNews = news.slice(0,10);
 
 sliceNews.forEach(singleNews => {
-    console.log(singleNews)
+    // console.log(singleNews)
 
-    
+
     // First paragraph word limit set
 let splitNewsDetails = singleNews.details.split(' ');
 let firstParaWordLimit = splitNewsDetails.slice(1,70);
@@ -74,7 +74,7 @@ let secondPara = secondParaWordLimit.join(' ');
                         <i class="bi bi-star-half"></i>
                         </div>
                         
-                        <i class="bi bi-arrow-right-circle text-success fs-3"></i>
+                        <i class="bi bi-arrow-right-circle text-success fs-3" onclick = "newsDetails('${singleNews._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
                         
                     </div>
                 </div>
@@ -84,9 +84,42 @@ let secondPara = secondParaWordLimit.join(' ');
 
     newsContainer.appendChild(row);
 });
-// console.log(newsIdFiltering)
+
 }
 
 
+let newsDetails = async(newsId) =>{
+    let url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+    let res = await fetch(url);
+    let data = await res.json();
+    individualNewsDetails(data.data[0]);
+
+}
+
+
+let individualNewsDetails = (mainData) =>{
+console.log(mainData)
+
+
+// Modal Body
+let modalBody = document.getElementById('modal-body');
+modalBody.innerHTML = `
+<div class="card mx-auto" style="width: 100%;">
+  <img src="${mainData.image_url}" class="card-img-top img-fluid mx-auto" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mainData.title ? mainData.title : 'Unknown'}</h5>
+
+<small><b class="text-secondary">${mainData.author.name? mainData.author.name : 'Unknown'}, ${mainData.author.published_date ? mainData.author.published_date : 'Unknown'}, ${mainData.rating.number? mainData.rating.number:'No Rating'} <i class="bi bi-star-fill text-warning"></i> </b>  </small>
+
+    <p class="card-text p-3"><b>News:</b> ${mainData.details ? mainData.details : 'Unknown'}</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>
+
+`
+
+}
 getNews()
 
+let ul = document.querySelectorAll('#secondNav li');
+console.log(ul)
