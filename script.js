@@ -1,8 +1,5 @@
 
 
-
-
-
 let getNews = async(id) =>{
 
 
@@ -124,7 +121,7 @@ modalBody.innerHTML = `
 <small><b class="text-secondary">${mainData.author.name? mainData.author.name : 'Unknown'}, ${mainData.author.published_date ? mainData.author.published_date : 'Unknown'}, ${mainData.rating.number? mainData.rating.number:'No Rating'} <i class="bi bi-star-fill text-warning"></i> </b>  </small>
 
     <p class="card-text p-3"><b>News:</b> ${mainData.details ? mainData.details : 'Unknown'}</p>
-    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    
   </div>
 </div>
 
@@ -139,8 +136,7 @@ for(let key of ul){
     
       let category = key.firstElementChild.innerText;
        let navLink = key.childNodes[3];
-    //    navLink.classList.add('active');
-    navLink.classList.add('text-success');
+   
       getNews(category);
 
       let categoryName = document.getElementById('categoryName');
