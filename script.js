@@ -2,31 +2,6 @@
 
 
 
-// let dynamicUrl  = () =>{
-
-   
-//     for(let key of ul){
-//         key.addEventListener('click',function (){
-        
-//            let category = key.firstElementChild.innerText;
-//           let getUrl = `https://openapi.programming-hero.com/api/news/category/${category}`
-          
-        
-//     })
-// }
-// return getUrl;
-// }
-
-
-// dynamicUrl()
-
-
-
-
-
-
-
-
 
 let getNews = async(id) =>{
 
@@ -43,13 +18,17 @@ console.log(error);
 
 let separateNews = (news) =>{
 
+    // Select the news container
+let newsContainer = document.getElementById('newsContainer');
+newsContainer.textContent = '';
+
 // Filtering news amount 
 
-let sliceNews = news.slice(0,10);
+// let sliceNews = news.slice(0,10);
 
-sliceNews.forEach(singleNews => {
-    // console.log(singleNews)
 
+news.forEach(singleNews => {
+   
 
     // First paragraph word limit set
 let splitNewsDetails = singleNews.details.split(' ');
@@ -61,8 +40,6 @@ let secondParaWordLimit = splitNewsDetails.slice(80,110);
 let secondPara = secondParaWordLimit.join(' ');
 
 
-// Select the news container
-    let newsContainer = document.getElementById('newsContainer');
     // creating a div
     let row = document.createElement('div');
     row.classList.add("row", "rounded", "shadow-lg");
@@ -115,7 +92,7 @@ let secondPara = secondParaWordLimit.join(' ');
           </div>
     `
 
-    newsContainer.appendChild(row);
+newsContainer.appendChild(row);
 });
 
 }
@@ -159,7 +136,8 @@ for(let key of ul){
     key.addEventListener('click',function (){
     
       let category = key.firstElementChild.innerText;
-      console.log(category)
+       let navLink = key.childNodes[3];
+       navLink.classList.add('active');
       getNews(category);
 })
 }
