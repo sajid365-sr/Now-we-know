@@ -28,7 +28,7 @@
 
     <!-- Navbar Starts-->
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg py-4">
         <div class="container pb-3 border-bottom">
           <div class="navbar-brand">
               <img src="images/logo.png" class="w-75" alt="">
@@ -66,43 +66,8 @@
               </button>
               
                 <ul class="navbar-nav collapse navbar-collapse justify-content-between" id="secondNav">
-                  <li class="nav-item">
-                    <span class="d-none">08</span>
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">01</span>
-                    <a class="nav-link" href="#">Breaking News</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">02</span>
-                    <a class="nav-link" href="#">Regular News</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">03</span>
-                    <a class="nav-link" href="#">International News</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">04</span>
-                    <a class="nav-link" href="#">Sports</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">05</span>
-                    <a class="nav-link" href="#">Entertainment</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">06</span>
-                    <a class="nav-link" href="#">Culture</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">07</span>
-                    <a class="nav-link" href="#">Arts</a>
-                  </li>
-                  <li class="nav-item">
-                    <span class="d-none">08</span>
-                    <a class="nav-link" href="#">All News</a>
-                  </li>
-                
+                  
+                <!-- Dynamic nav item will be here -->
                 </ul>
               
           </nav>
@@ -113,7 +78,7 @@
 <section class="container mt-2 mb-5">
     <div class="rounded px-4 py-2 bg-white my-4 ">
         <p class="my-1">
-        <span id="foundItem">0</span> item found for category <span id="categoryName" class="text-success fw-semibold">Home</span>
+        <span id="foundItem">0</span> item found for category <span id="categoryName" class="fw-semibold">......</span>
         </p>
     </div>
 
@@ -147,6 +112,14 @@
       
       </div>
 </main>
+<!-- spinner -->
+<section id="spinner" class="d-none">
+  <div style="height: 400px;" class="d-flex text-success justify-content-center align-items-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+</section>
 
 <!-- Modal Section -->
 <section>

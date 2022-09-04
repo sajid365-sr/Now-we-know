@@ -1,46 +1,69 @@
 
 
-let getNews = async(id,number,key) =>{
+let getNews = async() =>{
 
 
     try{
-        let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+        let url = `https://openapi.programming-hero.com/api/news/categories`;
     let res = await fetch(url);
     let data = await res.json();
-    separateNews(data.data,number,key);
+   
+    let array = data.data.news_category;
+
+    array.forEach(element => {
+        
+        // Creating dynamic ul
+        let ul = document.getElementById('secondNav');
+        let li = document.createElement('li');
+        li.classList.add('nav-item');
+        li.innerHTML = `
+        <a class="nav-link" href="#">${element.category_name}</a>
+        
+        `
+        ul.appendChild(li);
+
+li.addEventListener('click',function(){
+   
+    toggleSpinner(true);
+    let individualId = element.category_id;
+    let url = `https://openapi.programming-hero.com/api/news/category/${individualId}`
+    
+    fetch(url)
+    .then(res => res.json())
+    .then(data => separateNews(data.data,element))
+})
+    });
+
     }catch(error){
 console.log(error);
     }
 }
 
-let separateNews = (news,number,key) =>{
+
+let separateNews = (news,element) =>{
+
 
     // Select the news container
 let newsContainer = document.getElementById('newsContainer');
 newsContainer.textContent = '';
 
 
-
-if(number && news.length > 10){
-    news = news.slice(0,10);
-
-        }
-
         let articleNumber = news.length;
         let foundItem = document.getElementById('foundItem');
         foundItem.classList.add('text-success','fw-semibold' )
         foundItem.innerText = articleNumber;
 
-        // console.log(key);
-        // let navLink = key.lastElementChild;
-        // navLink.classList.add('text-success');
 
-        // console.log(navLink)
+        let categoryName = document.getElementById('categoryName');
+        categoryName.classList.add('text-success','fw-semibold')
+        categoryName.innerText = element.category_name;
 
 news.forEach(singleNews => {
    
     
-   
+// console.log(singleNews.category_id)
+
+
     
     // First paragraph word limit set
 let splitNewsDetails = singleNews.details.split(' ');
@@ -107,9 +130,11 @@ let secondPara = secondParaWordLimit.join(' ');
 newsContainer.appendChild(row);
 });
 
+// stop spinner
+toggleSpinner(false);
 }
 
-
+// Get individual news details by there id.
 let newsDetails = async(newsId) =>{
     let url = `https://openapi.programming-hero.com/api/news/${newsId}`;
     let res = await fetch(url);
@@ -120,7 +145,6 @@ let newsDetails = async(newsId) =>{
 
 
 let individualNewsDetails = (mainData) =>{
-console.log(mainData)
 
 
 // Modal Body
@@ -142,27 +166,15 @@ modalBody.innerHTML = `
 
 }
 
-let ul = document.querySelectorAll('#secondNav li');
-
-for(let key of ul){
-    key.addEventListener('click',function (){
-    
-      let anchors = document.querySelectorAll('#secondNav li a');
-     for(let anchor of anchors){
-         anchor.classList.remove('text-success','fw-semibold','text-decoration-underline');
-     }
-
-     let category = key.firstElementChild.innerText;
-       let navLink = key.lastElementChild;
-       navLink.classList.add('text-success','fw-semibold','text-decoration-underline');
-      getNews(category,10,key);
-
-      let categoryName = document.getElementById('categoryName');
-      categoryName.classList.add('text-success','fw-semibold')
-      categoryName.innerText = navLink.innerText;
-
-
-})
+// spinner function
+const toggleSpinner = isLoading =>{
+    let spinner = document.getElementById('spinner');
+    if(isLoading){
+        spinner.classList.remove('d-none');
+    }else{
+spinner.classList.add('d-none');
+    }
 }
 
-getNews('08',10);
+
+getNews();
