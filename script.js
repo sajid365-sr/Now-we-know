@@ -21,9 +21,11 @@ let getNews = async() =>{
         
         `
         ul.appendChild(li);
-
+        
+        console.log(li.firstElementChild)
 li.addEventListener('click',function(){
    
+   li.firstElementChild.classList.add('text-success','fw-semibold','text-decoration-underline');
     toggleSpinner(true);
     let individualId = element.category_id;
     let url = `https://openapi.programming-hero.com/api/news/category/${individualId}`
@@ -75,6 +77,16 @@ let secondParaWordLimit = splitNewsDetails.slice(80,110);
 let secondPara = secondParaWordLimit.join(' ');
 
 
+// Filtering
+
+if(singleNews.author.name === 'system'){
+    singleNews.author.name = 'Unknown';
+}else if(singleNews.author.name === null){
+singleNews.author.name = 'Unknown';
+}else if(singleNews.author.name === ""){
+    singleNews.author.name = 'Unknown';
+}
+
     // creating a div
     let row = document.createElement('div');
     row.classList.add("row", "rounded", "shadow-lg");
@@ -100,7 +112,9 @@ let secondPara = secondParaWordLimit.join(' ');
                             <img src="${singleNews.author.img}" style="height: 45px; width: 45px;" class="img-fluid rounded-circle" alt="">
                         
                        <div>
-                            <p class="mb-0">${singleNews.author.name ? singleNews.author.name : 'Unknown'}</p>
+
+                       
+                            <p class="mb-0">${singleNews.author.name}</p>
                             <p class="mb-0 text-secondary"><small>${singleNews.author.published_date? singleNews.author.published_date : 'Unknown'}</small></p>
                         </div>
                         
