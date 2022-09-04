@@ -111,9 +111,8 @@ singleNews.author.name = 'Unknown';
                         
                             <img src="${singleNews.author.img}" style="height: 45px; width: 45px;" class="img-fluid rounded-circle" alt="">
                         
-                       <div>
+                       <div class="text-lg-start text-center">
 
-                       
                             <p class="mb-0">${singleNews.author.name}</p>
                             <p class="mb-0 text-secondary"><small>${singleNews.author.published_date? singleNews.author.published_date : 'Unknown'}</small></p>
                         </div>
@@ -163,6 +162,16 @@ let individualNewsDetails = (mainData) =>{
 
 // Modal Body
 let modalBody = document.getElementById('modal-body');
+
+// Filtering
+
+if(mainData.author.name === 'system'){
+    mainData.author.name = 'Unknown';
+}else if(mainData.author.name === null){
+mainData.author.name = 'Unknown';
+}else if(mainData.author.name === ""){
+    mainData.author.name = 'Unknown';
+}
 modalBody.innerHTML = `
 <div class="card mx-auto w-100">
   <img src="${mainData.image_url}" class="card-img-top img-fluid mx-auto" alt="...">
